@@ -1,0 +1,256 @@
+@media only screen and (max-width:800px) {
+    /* For tablets: */
+    body{
+      width: 100%;
+      padding: 0;
+      background-color: blue;
+    }
+  }
+
+  @media only screen and (max-width:500px) {
+    /* For mobile phones: */
+   body{
+      width: 100%;
+      background-color: blue;
+    }
+  }
+
+body{
+    background-color: black;
+}
+.anav{
+    color: whitesmoke;
+    
+}
+.anav:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.marg{
+    padding-top: 2%;
+}
+
+.margcards{
+    margin: 1%
+}
+
+
+.dynamiccntr{
+    overflow-x:hidden;
+    background-color: black; 
+    position: absolute;
+    z-index: 99 !important;
+    overflow: auto;
+    box-shadow: 0 0 10px red;
+    height: 1200%;
+    top: 100%;
+    width: 100%;
+    margin-top: 1%;
+  }
+
+  .cardstyle{
+    font-weight:bold;
+    background-color:white;
+    margin:5%;
+    right: 2.8%;
+    margin-bottom: 9%;
+    max-height: 5rem;
+    box-shadow: 0 0 8px red;
+    transition: ease-in 280ms;
+  }
+ 
+.cardstyle:hover{
+    cursor: pointer;
+    font-weight:bolder;
+    background-color: rgb(150, 150, 150); 
+    color:  black;
+    opacity: 1;
+    transition: ease-out 280ms;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+ ul{
+    list-style: none;
+  }
+
+.cardeffect{
+    box-shadow: 0 0 5px rgb(255, 0, 0);
+    transition: ease-in 280ms;
+}    
+
+.cardeffect:hover{
+    
+    transition: ease-out 280ms;
+    transform: scale(1.07);
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+.innershell{
+    cursor:pointer;
+    
+}
+.outershell{
+    list-style-type: none;
+    animation-name: hide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+@keyframes hide {
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    75% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+
+.alert:hover{
+    cursor:pointer;
+}
+
+a:hover{
+    cursor:pointer;
+}
+
+.info {
+    
+    color: red !important;
+}
+.info:hover{
+    color: darkgray !important;
+    cursor:pointer !important;
+}
+
+.infoname{
+    color: red;
+}
+.infoname:hover{
+    color: gray;
+    cursor:pointer;
+}
+
+.nav-link:hover{
+    cursor:pointer;
+}
+
+li{
+    margin: 1.5% !important;
+}
+
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: red;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+.search-title {
+    text-align: center;
+    color: red;
+    margin: 1%;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+option{
+    cursor: pointer;
+}
+
+.options{
+    border-style: hidden;
+    cursor: pointer;
+    color: red;
+    background-color: white;
+    font-weight: bold;
+    
+}
+
+
+#loading {
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid #ff0000;
+    border-radius: 100%;
+    margin: auto;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+}
+#loading.display {
+    visibility: visible;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+#searchloading {
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid #ff0000;
+    border-radius: 100%;
+    margin: auto;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+}
+#searchloading.display {
+    visibility: visible;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+#topbtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #topbtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }

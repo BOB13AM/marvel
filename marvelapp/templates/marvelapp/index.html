@@ -1,0 +1,135 @@
+{% extends "marvelapp/layout.html" %}
+{% load static %}
+
+
+  {% block head %}
+  <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary" style="background-color: red;">
+      <div class="container-fluid">
+    
+          {%if request.user.is_authenticated %}
+          <input type="hidden" value="{{request.user.username}}" name="currentuser" id="currentuser">
+              <h4 style="color: whitesmoke;">Hello <b style="color: black;">{{request.user.username}}</b></h4>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <h5><input type="submit" class="nav-link anav navbtn"  id="home" value="Home" style="background-color: transparent;border-color: transparent;"></h5>                
+                </li>
+                <li class="nav-item">
+                    <h5><input type="submit" class="nav-link anav navbtn" id="navfavbtn" style="background-color: transparent;border-color: transparent;"  value="Fav.Page" data-fav="favcharacters"></h5>
+                </li>
+               </ul>
+              <a class="anav" href="{% url 'logout' %}">Log Out</a>
+          {%else%}
+          <input type="hidden" value="no_user" name="currentuser" id="currentuser">
+          <a class="anav" href="{% url 'login' %}"><h4></h4></a>
+             <ul class="navbar-nav">
+              <li class="nav-item">
+                <h5><input type="submit" class="nav-link anav navbtn"  id="home" value="Home" style="background-color: transparent;border-color: transparent;"></h5>                
+              </li>
+              <li class="nav-item">
+                  <h5><input type="submit" class="nav-link anav" id="navfavbtn" value="Fav.Heros" style="background-color: transparent;border-color: transparent;" onclick="alertmsg()"></h5>
+              </li>
+             </ul>
+             
+             <b style="color: black;"> <a class="anav" href="{% url 'login' %}">Sign-in/Register</a></b>
+          {%endif%}
+          
+      </div>
+    </nav>
+   
+    <div class="alert alert-danger" role="alert" id="favalert" onclick="closealert()">
+    
+    </div>
+  
+  {% endblock %}
+  
+  {% block body %}
+  
+      <br>
+      
+      <div id="searchelement" style="display:block; width: 100%; margin-left: 2%;">
+            <div class="container">
+              <div class="input-group mb-3 marg_btm">
+
+                
+                <select class="options rounded" name="categorylist" id="categorylist" > 
+                    <option value="all" selected >All Categories</option>
+                    <option value="character">Characters</option> 
+                    <option value="comic">Comics</option> 
+                    <option value="series">Series</option> 
+                    <option value="events">Events</option> 
+                </select>
+
+                <input required autofocus id="charname" type="text" class="form-control" placeholder="Type">
+                <input class="btn btn-danger" type="submit" id="button-addon2" value="Search">
+
+                <div class="dynamiccntr container-lg rounded" id="dynamic_cntr" >
+                  
+                  <ul id="dynamiclist" style="background-color: transparent;">
+                    
+                  </ul>
+                  <div id="searchloading"></div>
+                </div>
+                 
+              </div>
+            
+            </div>
+             
+          
+      </div>
+
+
+        <section id="team" class="pb-5">
+          <div class="container">
+              <h5 class="section-title h1" id="maintitle">The Marvel Gallery</h5>
+              <div id="page" class="row" justify-content-center>
+
+              
+
+            </div>
+            <div id="favbtnspace">
+
+            </div>
+          </div>
+          
+      </section>
+
+     
+       
+      <div class="container" id="searchpage">
+
+
+
+       
+      </div>
+      
+
+
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="allinfo">
+
+        </div>
+      </div>
+
+
+      
+      <section id="favteam" class="pb-5" >
+        <div class="container">
+          <h5 class="section-title h1" id="favmenu"></h5>
+            <div id="favpage" class="row" justify-content-center>
+             
+
+          </div>
+        </div>
+    </section>
+
+
+    <div id="loading"></div>
+    
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" id="topbtn" title="Go to top">Top</button>
+  {% endblock %}
+  
+
+{% block script %}
+<script src="{% static 'marvelapp/marvel.js' %}"></script>
+{% endblock %}
